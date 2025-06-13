@@ -1,5 +1,7 @@
 // src/components/ContactSection.vue
 <script setup>
+import { faWindows } from '@fortawesome/free-brands-svg-icons';
+import { faHomeLgAlt, faThumbTack } from '@fortawesome/free-solid-svg-icons';
 import { ref } from 'vue';
 
 const name = ref('');
@@ -18,6 +20,12 @@ function handleSubmit() {
   // - Netlify Forms (si alojas en Netlify)
   // - Formspree, Formspark, etc.
   // - Tu propio backend.
+  const mensaje  = `Hola, mi nombre es ${name.value} y mi correo es ${email.value}.  ${message.value}`
+  const mensajecodificado = encodeURIComponent(mensaje)
+  const movil = '34665783345'
+  const urlwhatapp = `https://wa.me/${movil}?text=${mensajecodificado}`
+  window.open(urlwhatapp,'_blank')
+ 
   alert('Gracias por tu mensaje, ' + name.value + '!');
 
   // Limpiar el formulario después de enviar
