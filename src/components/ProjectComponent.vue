@@ -16,7 +16,7 @@ const projects = ref([
     titulo: 'TierList',
     habilidades: ['HTML', 'CSS', 'Javascript'],
     imagen: '/images/projects/project-2.png',
-    linkProduccion: 'tier-list-alpha.vercel.app',
+    linkProduccion: 'https://tier-list-alpha.vercel.app',
     linkGithub: 'https://github.com/SaKio1985/TierList',
   },
   {
@@ -24,7 +24,7 @@ const projects = ref([
     titulo: 'To-do-list-Vue',
     habilidades: ['HTML', 'CSS', 'Vue.js', 'Javascript'],
     imagen: '/images/projects/project-3.png',
-    linkProduccion: 'to-do-list-vue-puce-two.vercel.app',
+    linkProduccion: 'https://to-do-list-vue-puce-two.vercel.app',
     linkGithub: 'https://github.com/SaKio1985/To-do-list-Vue',
   },
   {
@@ -32,7 +32,7 @@ const projects = ref([
     titulo: 'libreria-blackwater',
     habilidades: ['Astro', 'Javascript'],
     imagen: '/images/projects/project-4.png',
-    linkProduccion: 'libreria-blackwater.vercel.app',
+    linkProduccion: 'https://libreria-blackwater.vercel.app',
     linkGithub: 'https://github.com/SaKio1985/Libreria-blackwater',
   },
   {
@@ -40,7 +40,7 @@ const projects = ref([
     titulo: 'EcommerceJuegos',
     habilidades: ['React', 'CSS', 'HTML', 'tailwind'],
     imagen: '/images/projects/project-5.png',
-    linkProduccion: 'eccomerce-juegos.netlify.app',
+    linkProduccion: 'https://eccomerce-juegos.netlify.app',
     linkGithub: 'https://github.com/SaKio1985/EcommerceJuegos',
   },
   {
@@ -48,7 +48,7 @@ const projects = ref([
     titulo: 'Listado-personajes-Rick-Morty',
     habilidades: ['React', 'CSS', 'HTML', 'Bootstrap'],
     imagen: '/images/projects/project-6.png',
-    linkProduccion: 'listado-personajes-rick-morty.vercel.app',
+    linkProduccion: 'https://listado-personajes-rick-morty.vercel.app',
     linkGithub: 'https://github.com/SaKio1985/Listado-personajes-Rick-Morty',
   },
 ]);
