@@ -8,7 +8,7 @@ const projects = ref([
     titulo: "PORTFOLIO DE DISEÑO",
     habilidades: ["HTML", "CSS", "Vue.js"],
     imagen: "/images/projects/Portfolio-2025.png",
-    linkProduccion: "https://live-demo-url.com",
+    linkProduccion: "https://portfolio-2025-red-mu.vercel.app",
     linkGithub: "https://github.com/SaKio1985/Portfolio-2025",
   },
   {

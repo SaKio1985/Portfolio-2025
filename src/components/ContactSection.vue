@@ -1,62 +1,106 @@
 // src/components/ContactSection.vue
+
 <script setup>
-import { faWindows } from '@fortawesome/free-brands-svg-icons';
-import { faHomeLgAlt, faThumbTack } from '@fortawesome/free-solid-svg-icons';
-import { ref } from 'vue';
+import { ref } from "vue";
+// 1. Importamos la función 'toast' para mostrar notificaciones elegantes.
+import { toast } from "vue3-toastify";
 
-const name = ref('');
-const email = ref('');
-const message = ref('');
+// 2. Variables reactivas para los campos del formulario.
+const name = ref("");
+const email = ref("");
+const message = ref("");
 
-function handleSubmit() {
-  // Aquí es donde procesarías el formulario.
-  // Por ahora, solo mostraremos los datos en la consola.
-  console.log('Formulario enviado:');
-  console.log('Nombre:', name.value);
-  console.log('Email:', email.value);
-  console.log('Mensaje:', message.value);
+// 3. Estado para saber si el formulario se está enviando. Útil para desactivar el botón.
+const isLoading = ref(false);
 
-  // Validaciones
-  if (name.value.length <3) {
-    alert('Introduzca nombre mas largo');
+async function handleSubmit() {
+  // --- Las validaciones no cambian ---
+  if (name.value.trim().length < 3) {
+    toast.error("Por favor, introduce un nombre con al menos 3 caracteres.");
+    return;
   }
-  if (!email.value.includes ('.')){
-    alert('Introduzca . en el email');
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email.value.trim())) {
+    toast.error("Por favor, introduce una dirección de email válida.");
+    return;
   }
-  if (message.value.length <15) {
-    alert('Introduzca un mensaje de al menos 15 caracteres');
-  }   
-  const mensaje  = `Hola, mi nombre es ${name.value} y mi correo es ${email.value}.  ${message.value}`
-  const mensajecodificado = encodeURIComponent(mensaje)
-  const movil = '34665783345'
-  const urlwhatapp = `https://wa.me/${movil}?text=${mensajecodificado}`
-  window.open(urlwhatapp,'_blank')
- 
-  alert('Gracias por tu mensaje, ' + name.value + '!');
+  if (message.value.trim().length < 15) {
+    toast.error("Por favor, escribe un mensaje de al menos 15 caracteres.");
+    return;
+  }
 
-  // Limpiar el formulario después de enviar
-  name.value = '';
-  email.value = '';
-  message.value = '';
+  // --- COMIENZA EL TRUCO PARA EL DESARROLLO LOCAL ---
+
+  // Si estamos en modo de desarrollo (ejecutando 'pnpm dev'), simulamos el envío.
+  if (import.meta.env.DEV) {
+    console.log("--- MODO DESARROLLO: SIMULANDO ENVÍO ---");
+    console.log("Nombre:", name.value.trim());
+    console.log("Email:", email.value.trim());
+    console.log("Mensaje:", message.value.trim());
+
+    isLoading.value = true;
+
+    // Fingimos una pequeña espera, como si fuera una petición real
+    await new Promise((resolve) => setTimeout(resolve, 1000)); // Espera de 1 segundo
+
+    isLoading.value = false;
+
+    toast.success("¡Mensaje simulado con éxito! (Modo Desarrollo)");
+    name.value = "";
+    email.value = "";
+    message.value = "";
+
+    return; // Detenemos la función aquí para no intentar hacer el 'fetch' real.
+  }
+
+  // --- FIN DEL TRUCO ---
+  // El siguiente código solo se ejecutará cuando estés en producción (en Vercel)
+
+  isLoading.value = true;
+  try {
+    const response = await fetch("/api/enviar-telegram", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        nombre: name.value.trim(),
+        email: email.value.trim(),
+        mensaje: message.value.trim(),
+      }),
+    });
+
+    if (response.ok) {
+      toast.success("¡Mensaje enviado con éxito! Gracias.");
+      name.value = "";
+      email.value = "";
+      message.value = "";
+    } else {
+      toast.error(
+        "Hubo un error al enviar el mensaje. Inténtalo de nuevo más tarde."
+      );
+    }
+  } catch (error) {
+    console.error("Error al llamar a la API:", error);
+    toast.error("Error de red. Por favor, comprueba tu conexión.");
+  } finally {
+    isLoading.value = false;
+  }
 }
 </script>
 
 <template>
-  <!-- 1. Añadimos el ID que coincide con el href del botón "CONTACT ME" -->
   <section class="contact-section" id="contact-section">
     <div class="contact-content">
       <div class="text-side">
         <h2>Contacto</h2>
         <p>
-        Me encantaría saber de tu proyecto y cómo puedo ayudarte. Completa el formulario y me pondré en contacto contigo lo antes posible.
+          Me encantaría saber de tu proyecto y cómo puedo ayudarte. Completa el
+          formulario y me pondré en contacto contigo lo antes posible.
         </p>
       </div>
       <div class="form-side">
-        <!-- 2. Usamos @submit.prevent para llamar a nuestro método handleSubmit sin recargar la página -->
         <form @submit.prevent="handleSubmit">
           <div class="form-group">
             <label for="name">NOMBRE</label>
-            <!-- 3. v-model conecta este input con la variable 'name' en el script -->
             <input type="text" id="name" v-model="name" required />
           </div>
           <div class="form-group">
@@ -65,10 +109,18 @@ function handleSubmit() {
           </div>
           <div class="form-group">
             <label for="message">MENSAJE</label>
-            <textarea id="message" v-model="message" rows="3" required></textarea>
+            <textarea
+              id="message"
+              v-model="message"
+              rows="3"
+              required
+            ></textarea>
           </div>
           <div class="form-group submit-group">
-            <button type="submit" class="contact-button">ENVIAR MENSAJE</button>
+            <!-- 4. El botón ahora se desactiva y cambia su texto dinámicamente -->
+            <button type="submit" class="contact-button" :disabled="isLoading">
+              {{ isLoading ? "Enviando..." : "ENVIAR MENSAJE" }}
+            </button>
           </div>
         </form>
       </div>
@@ -77,8 +129,9 @@ function handleSubmit() {
 </template>
 
 <style scoped>
+/* Tus estilos no necesitan ningún cambio, pero los incluyo para que sea completo */
 .contact-section {
-  background-color: #202020; /* Mismo fondo que el footer para un look unificado */
+  background-color: #202020;
   padding: 60px 40px;
 }
 
@@ -92,16 +145,16 @@ function handleSubmit() {
 
 .text-side {
   flex-basis: 45%;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .text-side h2 {
-  font-size: 4rem; /* Tamaño grande para el título */
+  font-size: 4rem;
   margin-bottom: 20px;
 }
 
 .text-side p {
-  color: #D9D9D9;
+  color: #d9d9d9;
   line-height: 1.6;
   font-size: 14px;
 }
@@ -114,38 +167,38 @@ function handleSubmit() {
   margin-bottom: 30px;
 }
 
-/* Estilos para los campos del formulario como en la imagen */
 label {
   display: block;
   font-size: 0.8rem;
-  color: #D9D9D9;
+  color: #d9d9d9;
   text-transform: uppercase;
   margin-bottom: 5px;
 }
 
-input, textarea {
+input,
+textarea {
   width: 100%;
   background-color: transparent;
   border: none;
-  border-bottom: 1px solid #FFFFFF;
-  color: #FFFFFF;
+  border-bottom: 1px solid #ffffff;
+  color: #ffffff;
   padding: 10px 0;
-  font-family: inherit; /* Hereda la fuente del body */
+  font-family: inherit;
   font-size: 1rem;
 }
 
-input:focus, textarea:focus {
-  outline: none; /* Quita el borde azul/naranja al hacer foco */
-  border-bottom-color: #c49f3b; /* Cambia el color de la línea al hacer foco */
+input:focus,
+textarea:focus {
+  outline: none;
+  border-bottom-color: #c49f3b;
 }
 
-/* Estilos para el botón, reutilizando la clase del Hero */
 .contact-button {
   display: inline-block;
   padding: 10px 0;
   font-size: 1rem;
   letter-spacing: 2px;
-  color: #FFFFFF;
+  color: #ffffff;
   text-decoration: none;
   text-transform: uppercase;
   border-bottom: 2px solid #c49f3b;
@@ -154,14 +207,21 @@ input:focus, textarea:focus {
   border-left: none;
   border-right: none;
   cursor: pointer;
+  transition: color 0.3s ease, opacity 0.3s ease;
 }
 
-.contact-button:hover {
+.contact-button:hover:not(:disabled) {
   color: #c49f3b;
 }
 
+/* 5. Estilo adicional para cuando el botón está desactivado */
+.contact-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 .submit-group {
-  text-align: right; /* Alinea el botón a la derecha */
+  text-align: right;
 }
 
 @media (max-width: 768px) {
