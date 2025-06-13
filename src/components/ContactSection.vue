@@ -16,10 +16,16 @@ function handleSubmit() {
   console.log('Email:', email.value);
   console.log('Mensaje:', message.value);
 
-  // En un proyecto real, aquí llamarías a un servicio como:
-  // - Netlify Forms (si alojas en Netlify)
-  // - Formspree, Formspark, etc.
-  // - Tu propio backend.
+  // Validaciones
+  if (name.value.length <3) {
+    alert('Introduzca nombre mas largo');
+  }
+  if (!email.value.includes ('.')){
+    alert('Introduzca . en el email');
+  }
+  if (message.value.length <15) {
+    alert('Introduzca un mensaje de al menos 15 caracteres');
+  }   
   const mensaje  = `Hola, mi nombre es ${name.value} y mi correo es ${email.value}.  ${message.value}`
   const mensajecodificado = encodeURIComponent(mensaje)
   const movil = '34665783345'
