@@ -1,0 +1,36 @@
+---
+const skills = [
+  { name: 'HTML', experience: '1.5 Años Experiencia' },
+  { name: 'CSS', experience: '1.5 Años Experiencia' },
+  { name: 'Javascript', experience: '1.5 Años Experiencia' },
+  { name: 'React', experience: '1 Año Experiencia' },
+  { name: 'Vue', experience: '6 Meses Experiencia' },
+  { name: 'Git', experience: '2 años Experiencia' },
+];
+---
+
+<section class="py-10 px-10 max-w-6xl mx-auto text-text" id="skills">
+  <hr class="border-none h-px bg-gray-600 mb-12" />
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+    {skills.map((skill) => (
+      <div class="text-left">
+        <h3 class="text-2xl md:text-3xl font-bold mb-2 leading-tight">
+          {skill.name}
+        </h3>
+        <p class="text-base text-text-muted m-0">
+          {skill.experience}
+        </p>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  @media (max-width: 480px) {
+    .grid {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+  }
+</style>

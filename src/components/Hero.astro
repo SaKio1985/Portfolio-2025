@@ -1,0 +1,55 @@
+---
+// No props needed for this component
+---
+
+<section class="relative overflow-hidden min-h-[720px] flex items-center max-w-6xl mx-auto px-10" id="home">
+  <div class="w-3/5 relative z-10">
+    <h2 class="text-3xl md:text-4xl mb-4">Encantado de conocerte</h2>
+    <h1 class="text-4xl md:text-6xl mb-6">
+      Soy <span class="underline decoration-accent decoration-4 underline-offset-8">Iban Dorado</span>.
+    </h1>
+    <p class="w-11/12 text-lg leading-relaxed text-text-muted mb-8 bg-black/35 p-4 rounded shadow-lg">
+      Estoy instalado en Salamanca, España. Soy un desarrollador Front-end, apasionado por construir webs accesibles que los usuarios amen.
+    </p>
+    <a 
+      href="#contact-section" 
+      class="inline-block text-text no-underline pb-2 mt-8 border-b-2 border-accent uppercase tracking-widest font-bold hover:text-accent transition-colors duration-300"
+    >
+      <span>CONTACTAME</span>
+    </a>
+  </div>
+
+  <div class="absolute top-0 right-0 w-[445px] h-[720px] z-0 hidden md:block">
+    <img 
+      src="/Photo.png" 
+      alt="Foto de Iban Dorado" 
+      class="w-4/5 h-4/5 object-cover"
+      loading="eager"
+    />
+  </div>
+</section>
+
+<!-- Mobile image -->
+<div class="md:hidden flex justify-center mb-8">
+  <img 
+    src="/Photo.png" 
+    alt="Foto de Iban Dorado" 
+    class="w-48 h-64 object-cover rounded-lg"
+    loading="eager"
+  />
+</div>
+
+<style>
+  @media (max-width: 768px) {
+    section {
+      flex-direction: column;
+      min-height: auto;
+      text-align: center;
+      padding-top: 2rem;
+    }
+    
+    section > div:first-child {
+      width: 100%;
+    }
+  }
+</style>

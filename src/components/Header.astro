@@ -1,0 +1,55 @@
+---
+// No props needed for this component
+---
+
+<header class="flex justify-between items-center p-5 md:px-10 w-full">
+  <div class="text-xl md:text-2xl font-bold text-text">
+    Ibandorado
+  </div>
+  <nav class="flex items-center gap-6">
+    <a 
+      href="https://github.com/SaKio1985" 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      aria-label="GitHub"
+      class="text-text text-xl md:text-2xl hover:text-accent transition-colors duration-300"
+    >
+      <i class="fab fa-github"></i>
+    </a>
+    <a 
+      href="#" 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      aria-label="Frontend Mentor Profile"
+      class="text-text text-xl md:text-2xl hover:text-accent transition-colors duration-300"
+    >
+      <i class="fas fa-file-code"></i>
+    </a>
+    <a 
+      href="https://www.linkedin.com/in/iban-dorado-171a4a24b/" 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      aria-label="LinkedIn"
+      class="text-text text-xl md:text-2xl hover:text-accent transition-colors duration-300"
+    >
+      <i class="fab fa-linkedin"></i>
+    </a>
+    <a 
+      href="https://x.com/IbDorado" 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      aria-label="Twitter"
+      class="text-text text-xl md:text-2xl hover:text-accent transition-colors duration-300"
+    >
+      <i class="fab fa-twitter"></i>
+    </a>
+  </nav>
+</header>
+
+<script>
+  // Font Awesome CDN
+  const link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
+  document.head.appendChild(link);
+</script>

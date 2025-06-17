@@ -1,0 +1,105 @@
+---
+const projects = [
+  {
+    id: 1,
+    title: "PORTFOLIO DE DISEÑO",
+    technologies: ["HTML", "CSS", "Vue.js"],
+    image: "/images/projects/Portfolio-2025.png",
+    liveUrl: "https://portfolio-2025-red-mu.vercel.app",
+    githubUrl: "https://github.com/SaKio1985/Portfolio-2025",
+  },
+  {
+    id: 2,
+    title: "TierList",
+    technologies: ["HTML", "CSS", "Javascript"],
+    image: "/images/projects/tier-maker.png",
+    liveUrl: "https://tier-list-alpha.vercel.app",
+    githubUrl: "https://github.com/SaKio1985/TierList",
+  },
+  {
+    id: 3,
+    title: "To-do-list-Vue",
+    technologies: ["HTML", "CSS", "Vue.js", "Javascript"],
+    image: "/images/projects/To-do-list-vue.png",
+    liveUrl: "https://to-do-list-vue-puce-two.vercel.app",
+    githubUrl: "https://github.com/SaKio1985/To-do-list-Vue",
+  },
+  {
+    id: 4,
+    title: "libreria-blackwater",
+    technologies: ["Astro", "Javascript"],
+    image: "/images/projects/libreria-blackwater.png",
+    liveUrl: "https://libreria-blackwater.vercel.app",
+    githubUrl: "https://github.com/SaKio1985/Libreria-blackwater",
+  },
+  {
+    id: 5,
+    title: "EcommerceJuegos",
+    technologies: ["React", "CSS", "HTML", "tailwind"],
+    image: "/images/projects/EcommerceJuegos.png",
+    liveUrl: "https://eccomerce-juegos.netlify.app",
+    githubUrl: "https://github.com/SaKio1985/EcommerceJuegos",
+  },
+  {
+    id: 6,
+    title: "Listado-personajes-Rick-Morty",
+    technologies: ["React", "CSS", "HTML", "Bootstrap"],
+    image: "/images/projects/Listado-personajes-Rick-Morty.png",
+    liveUrl: "https://listado-personajes-rick-morty.vercel.app",
+    githubUrl: "https://github.com/SaKio1985/Listado-personajes-Rick-Morty",
+  },
+];
+---
+
+<section class="py-10 px-10 max-w-6xl mx-auto" id="projects">
+  <header class="flex justify-between items-center mb-16">
+    <h1 class="text-4xl md:text-6xl m-0">Proyectos</h1>
+    <a 
+      href="#contact-section" 
+      class="inline-block text-text no-underline pb-2 border-b-2 border-accent uppercase tracking-widest font-bold hover:text-accent transition-colors duration-300"
+    >
+      <span>CONTACTAME</span>
+    </a>
+  </header>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+    {projects.map((project) => (
+      <div class="mb-5">
+        <div class="relative mb-5 cursor-pointer group">
+          <img 
+            src={project.image} 
+            alt={`Screenshot of ${project.title}`} 
+            class="w-full block"
+            loading="lazy"
+          />
+          <div class="absolute top-0 left-0 w-full h-full bg-black/75 flex flex-col justify-center items-center gap-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <a 
+              href={project.liveUrl} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="text-text no-underline pb-1 border-b-2 border-accent uppercase tracking-widest font-bold hover:text-accent transition-colors duration-300"
+            >
+              VIEW PROJECT
+            </a>
+            <a 
+              href={project.githubUrl} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="text-text no-underline pb-1 border-b-2 border-accent uppercase tracking-widest font-bold hover:text-accent transition-colors duration-300"
+            >
+              VIEW CODE
+            </a>
+          </div>
+        </div>
+        <h3 class="text-xl md:text-2xl uppercase m-0 mb-2">
+          {project.title}
+        </h3>
+        <p class="text-text-muted uppercase flex gap-4 flex-wrap">
+          {project.technologies.map((tech) => (
+            <span>{tech}</span>
+          ))}
+        </p>
+      </div>
+    ))}
+  </div>
+</section>
