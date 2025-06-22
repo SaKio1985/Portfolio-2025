@@ -1,0 +1,11 @@
+body {
+  margin: 0;
+  background-color: #151515; /* <-- El fondo oscuro */
+  color: #ffffff; /* <-- El color de texto blanco */
+  font-family: "Fira Code", monospace; /* Tu fuente global */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Puedes añadir más estilos globales aquí si los necesitas */
