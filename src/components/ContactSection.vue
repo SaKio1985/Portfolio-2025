@@ -32,26 +32,26 @@ async function handleSubmit() {
   // --- COMIENZA EL TRUCO PARA EL DESARROLLO LOCAL ---
 
   // Si estamos en modo de desarrollo (ejecutando 'pnpm dev'), simulamos el envío.
-  if (import.meta.env.DEV) {
-    console.log("--- MODO DESARROLLO: SIMULANDO ENVÍO ---");
-    console.log("Nombre:", name.value.trim());
-    console.log("Email:", email.value.trim());
-    console.log("Mensaje:", message.value.trim());
+  // if (import.meta.env.DEV) {
+  //   console.log("--- MODO DESARROLLO: SIMULANDO ENVÍO ---");
+  //   console.log("Nombre:", name.value.trim());
+  //   console.log("Email:", email.value.trim());
+  //   console.log("Mensaje:", message.value.trim());
 
-    isLoading.value = true;
+  //   isLoading.value = true;
 
-    // Fingimos una pequeña espera, como si fuera una petición real
-    await new Promise((resolve) => setTimeout(resolve, 1000)); // Espera de 1 segundo
+  //   // Fingimos una pequeña espera, como si fuera una petición real
+  //   await new Promise((resolve) => setTimeout(resolve, 1000)); // Espera de 1 segundo
 
-    isLoading.value = false;
+  //   isLoading.value = false;
 
-    toast.success("¡Mensaje simulado con éxito! (Modo Desarrollo)");
-    name.value = "";
-    email.value = "";
-    message.value = "";
+  //   toast.success("¡Mensaje simulado con éxito! (Modo Desarrollo)");
+  //   name.value = "";
+  //   email.value = "";
+  //   message.value = "";
 
-    return; // Detenemos la función aquí para no intentar hacer el 'fetch' real.
-  }
+  //   return; // Detenemos la función aquí para no intentar hacer el 'fetch' real.
+  // }
 
   // --- FIN DEL TRUCO ---
   // El siguiente código solo se ejecutará cuando estés en producción (en Vercel)
@@ -93,8 +93,9 @@ async function handleSubmit() {
       <div class="text-side">
         <h2>Contacto</h2>
         <p>
-          Me encantaría saber de tu proyecto y cómo puedo ayudarte. Completa el
-          formulario y me pondré en contacto contigo lo antes posible.
+          ¿Tienes una idea o un proyecto en mente? Me encantaría escuchar sobre
+          ello y explorar cómo podemos colaborar para hacerlo realidad. Rellena
+          el formulario y te contactaré a la brevedad.
         </p>
       </div>
       <div class="form-side">

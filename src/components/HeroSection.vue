@@ -3,28 +3,29 @@
 </script>
 
 <template>
-  <!-- 1. El contenedor principal ahora será relativo y servirá de marco.
-       He usado tus nombres de clase donde es posible. '.contact-container' ahora es 'hero-section'. -->
   <section class="hero-section" id="home">
-    <!-- El div '.ficha-container' contiene solo el texto y vive dentro del flujo principal. -->
-    <div class='ficha-container'>
+    <div class="ficha-container">
       <h2>Encantado de conocerte</h2>
       <h1>Soy <span class="highlight">Iban Dorado</span>.</h1>
-      <p class='parrafo-presentacion'>
-        Estoy instalado en Salamanca, España. Soy un desarrollador Front-end, apasionado por construir webs accesibles que los usuarios amen.
+      <p class="parrafo-presentacion">
+        Con base en Salamanca, España, soy un desarrollador Front-end enfocado
+        en la accesibilidad y la artesanía digital. Mi misión es simple:
+        construir aplicaciones web que funcionen a la perfección y que a la
+        gente le encante usar.
       </p>
-      <!-- 2. Cambiamos el <button> por un <a> para la navegación de ancla.
-           Le damos el href que apuntará a la sección de contacto. -->
-      <a href="#contact-section" class='boton-contacto'>
-        <span>CONTACTAME</span>
-      </a>
+      <div class="cta-buttons">
+        <a href="#contact-section" class="boton-contacto">
+          <span>CONTACTAME</span>
+        </a>
+        <a href="/Iban_Dorado_CV.pdf" download class="boton-contacto">
+          <span>DESCARGAR CV</span>
+        </a>
+      </div>
     </div>
 
-    <!-- 3. El contenedor de la imagen ahora está fuera de '.ficha-container'
-         y lo posicionaremos de forma absoluta. -->
-    <div class='imagen-container'>
+    <div class="imagen-container">
       <picture>
-        <img src="/Photo.png" alt='Foto de Iban Dorado'/>
+        <img src="/Photo.png" alt="Foto de Iban Dorado" />
       </picture>
     </div>
   </section>
@@ -61,11 +62,12 @@ h1 {
   width: 90%; /* Ancho relativo a su contenedor (.ficha-container) */
   font-size: 1.1rem; /* Un poco más grande para legibilidad */
   line-height: 1.6;
-  color: #D9D9D9;
-  background-color: rgba(33,33,33,0.35); 
+  color: #d9d9d9;
+  background-color: rgba(33, 33, 33, 0.35);
   text-shadow: 1px 1px 2px black;
 }
-.highlight { /* Usé una clase en lugar de un tag 'span' genérico */
+.highlight {
+  /* Usé una clase en lugar de un tag 'span' genérico */
   text-decoration: underline;
   text-decoration-color: #c49f3b; /* Tu color de acento */
   text-decoration-thickness: 4px; /* Grosor de la línea */
@@ -74,19 +76,25 @@ h1 {
 
 /* Estilos para el botón de contacto */
 .boton-contacto {
-  display: inline-block; /* Para que se comporte como un bloque pero en línea */
+  display: inline-block;
   color: white;
-  text-decoration: none; /* Quita el subrayado por defecto del enlace <a> */
-  padding-bottom: 10px; /* Espacio para la línea de abajo */
-  margin-top: 30px;
-  border-bottom: 2px solid #c49f3b; /* Usamos un borde en lugar del span */
+  text-decoration: none;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #c49f3b;
   text-transform: uppercase;
   letter-spacing: 2px;
   font-weight: bold;
+  transition: color 0.3s ease;
 }
 
 .boton-contacto:hover {
   color: #c49f3b; /* Cambia de color al pasar el ratón */
+}
+.cta-buttons {
+  display: flex; /* 1. Pone los elementos hijos (los botones) en una línea */
+  align-items: center; /* 2. Los alinea verticalmente por si tienen alturas diferentes */
+  gap: 40px; /* 3. AÑADE UN ESPACIO DE 40px ENTRE LOS BOTONES. ¡Esta es la solución! */
+  margin-top: 40px; /* Espacio superior para separar los botones del párrafo */
 }
 
 /* Contenedor de la imagen (posicionado absolutamente) */
@@ -134,6 +142,11 @@ h1 {
     height: 300px;
     order: 1; /* La imagen va primero en el orden visual */
     z-index: 1;
+  }
+  .cta-buttons {
+    justify-content: center; /* Centra los botones horizontalmente */
+    flex-wrap: wrap; /* Permite que se pongan uno debajo del otro si no caben */
+    gap: 20px 40px; /* 20px de espacio vertical, 40px de espacio horizontal */
   }
 }
 </style>
