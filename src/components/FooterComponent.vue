@@ -1,11 +1,14 @@
 <script setup>
-import { library } from '@fortawesome/fontawesome-svg-core'
-// Reutilizamos los mismos iconos que en el header de la imagen de referencia
-// GitHub, Frontend Mentor (placeholder), LinkedIn, Twitter
-import { faGithub, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons'
-import { faFileCode } from '@fortawesome/free-solid-svg-icons' // Placeholder para Frontend Mentor
+import { library } from "@fortawesome/fontawesome-svg-core";
 
-library.add(faGithub, faLinkedin, faTwitter, faFileCode)
+import {
+  faGithub,
+  faLinkedin,
+  faTwitter,
+} from "@fortawesome/free-brands-svg-icons";
+import { faFileCode } from "@fortawesome/free-solid-svg-icons";
+
+library.add(faGithub, faLinkedin, faTwitter, faFileCode);
 
 const currentYear = new Date().getFullYear();
 </script>
@@ -13,20 +16,38 @@ const currentYear = new Date().getFullYear();
 <template>
   <footer class="footer-container">
     <div class="footer-content">
-      <div class="brand-info">
-        ibandorado © {{ currentYear }}
-      </div>
+      <div class="brand-info">ibandorado © {{ currentYear }}</div>
       <nav class="social-links">
-        <a href="https://github.com/SaKio1985" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+        <a
+          href="https://github.com/SaKio1985"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub"
+        >
           <font-awesome-icon :icon="['fab', 'github']" />
         </a>
-        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Frontend Mentor Profile"> <!-- Cambia # por tu link -->
-          <font-awesome-icon :icon="['fas', 'file-code']" /> <!-- Icono de ejemplo para Frontend Mentor -->
+        <a
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Frontend Mentor Profile"
+        >
+          <font-awesome-icon :icon="['fas', 'file-code']" />
         </a>
-        <a href="https://www.linkedin.com/in/iban-dorado-171a4a24b/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <a
+          href="https://www.linkedin.com/in/iban-dorado-171a4a24b/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
+        >
           <font-awesome-icon :icon="['fab', 'linkedin']" />
         </a>
-        <a href="https://x.com/IbDorado" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+        <a
+          href="https://x.com/IbDorado"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Twitter"
+        >
           <font-awesome-icon :icon="['fab', 'twitter']" />
         </a>
       </nav>
@@ -37,7 +58,7 @@ const currentYear = new Date().getFullYear();
 <style scoped>
 .footer-container {
   background-color: #202020; /* Un gris oscuro, como en la imagen de referencia del footer */
-  color: #FFFFFF;
+  color: #ffffff;
   padding: 25px 40px; /* Ajusta el padding vertical y horizontal */
   border-top: 1px solid #383838; /* Línea divisoria superior, color sutil */
   /* Si el footer debe estar siempre al final de la página,
@@ -64,7 +85,7 @@ const currentYear = new Date().getFullYear();
 }
 
 .social-links a {
-  color: #FFFFFF; /* Color del icono */
+  color: #ffffff; /* Color del icono */
   font-size: 1.25rem; /* Tamaño de los iconos, puede ser un poco más pequeño que en el header si prefieres */
   transition: color 0.3s ease;
 }

@@ -64,7 +64,7 @@ const projects = ref([
     </header>
 
     <div class="projects-grid">
-      <!-- 2. Aquí hacemos el "mapeo" de las propiedades -->
+      <!--  Aquí hacemos el "mapeo" de las propiedades -->
       <div v-for="proyecto in projects" :key="proyecto.id">
         <ProjectCard
           :project="{

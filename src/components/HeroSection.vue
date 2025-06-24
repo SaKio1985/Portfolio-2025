@@ -1,6 +1,4 @@
-<script setup>
-// Aquí podrías añadir lógica en el futuro si la necesitas
-</script>
+<script setup></script>
 
 <template>
   <section class="hero-section" id="home">

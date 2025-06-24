@@ -1,11 +1,8 @@
 <script setup>
-// Este componente recibe los datos de un proyecto como 'prop'
 const props = defineProps({
   project: {
     type: Object,
     required: true,
-    // Vue espera que este objeto tenga las claves:
-    // title, technologies, image, liveUrl, githubUrl
   },
 });
 </script>
@@ -14,7 +11,7 @@ const props = defineProps({
   <div class="project-card">
     <div class="image-container">
       <img :src="project.image" :alt="`Screenshot of ${project.title}`" />
-      <!-- Esta es la capa que aparece al pasar el cursor -->
+
       <div class="overlay">
         <a :href="project.liveUrl" target="_blank" class="project-link"
           >VIEW PROJECT</a

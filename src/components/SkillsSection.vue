@@ -1,20 +1,14 @@
 <script setup>
-import { ref } from 'vue';
+import { ref } from "vue";
 
-// 1. Definimos los datos de las habilidades.
 // Usamos ref para que Vue lo trate como un dato reactivo, es una buena práctica.
 const skills = ref([
-  { name: 'HTML', experience: '1.5 Años Experiencia' },
-  { name: 'CSS', experience: '1.5 Años Experiencia' },
-  { name: 'Javascript', experience: '1.5 Años Experiencia' },
-  { name: 'React',      experience: '1 Año Experiencia' },
-  { name: 'Vue',        experience: '6 Meses Experiencia' },
-  { name: 'Git',        experience: '2 años Experiencia' },
-  // Para tener 2 filas (4x2), simplemente añade más habilidades aquí.
-  // { name: 'Sass',       experience: '1 Year Experience' },
-  // { name: 'Node.js',    experience: '6 Months Experience' },
-  // { name: 'Git',        experience: '2 Years Experience' },
-  // { name: 'Figma',      experience: '1 Year Experience' },
+  { name: "HTML", experience: "1.5 Años Experiencia" },
+  { name: "CSS", experience: "1.5 Años Experiencia" },
+  { name: "Javascript", experience: "1.5 Años Experiencia" },
+  { name: "React", experience: "1 Año Experiencia" },
+  { name: "Vue", experience: "6 Meses Experiencia" },
+  { name: "Git", experience: "2 años Experiencia" },
 ]);
 </script>
 
@@ -39,7 +33,7 @@ const skills = ref([
   padding: 40px; /* Espaciado interno de la sección */
   max-width: 1100px; /* Mantenemos el ancho máximo consistente */
   margin: 0 auto; /* Centramos la sección */
-  color: #FFFFFF; /* Color de texto blanco por defecto */
+  color: #ffffff; /* Color de texto blanco por defecto */
 }
 
 /* 3. Estilo para la línea divisoria */
@@ -73,7 +67,7 @@ const skills = ref([
 
 .skill-experience {
   font-size: 1rem; /* 16px - Tamaño normal para la experiencia */
-  color: #D9D9D9; /* El mismo gris claro que usamos en la descripción del hero */
+  color: #d9d9d9; /* El mismo gris claro que usamos en la descripción del hero */
   margin: 0;
 }
 

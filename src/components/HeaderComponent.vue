@@ -1,31 +1,51 @@
 <script setup>
-import { library } from '@fortawesome/fontawesome-svg-core'
-// Los iconos de la imagen son: GitHub, Frontend Mentor, LinkedIn, Twitter
-// Asegúrate de importar los correctos. Frontend Mentor podría no estar en FA estándar.
-// Voy a usar los que tenías más LinkedIn y Twitter como ejemplo.
-import { faLinkedin, faTwitter, faGithub } from '@fortawesome/free-brands-svg-icons'
-// faHome, faUser, faEnvelope son de free-solid-svg-icons
-import { faFileCode } from '@fortawesome/free-solid-svg-icons' // Placeholder para Frontend Mentor
+import { library } from "@fortawesome/fontawesome-svg-core";
 
-library.add(faGithub, faLinkedin, faTwitter, faFileCode)
+import {
+  faLinkedin,
+  faTwitter,
+  faGithub,
+} from "@fortawesome/free-brands-svg-icons";
+
+import { faFileCode } from "@fortawesome/free-solid-svg-icons";
+
+library.add(faGithub, faLinkedin, faTwitter, faFileCode);
 </script>
 
 <template>
-  <header class='header-container'>
-    <div class="logo"> <!-- Envuelve el logo/nombre para mejor control si es necesario -->
-      Ibandorado 
-    </div>
+  <header class="header-container">
+    <div class="logo">Ibandorado</div>
     <nav class="social-links">
-      <a href="https://github.com/SaKio1985" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+      <a
+        href="https://github.com/SaKio1985"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="GitHub"
+      >
         <font-awesome-icon :icon="['fab', 'github']" />
       </a>
-      <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Frontend Mentor Profile"> <!-- Cambia # por tu link -->
-        <font-awesome-icon :icon="['fas', 'file-code']" /> <!-- Icono de ejemplo para Frontend Mentor -->
+      <a
+        href="#"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Frontend Mentor Profile"
+      >
+        <font-awesome-icon :icon="['fas', 'file-code']" />
       </a>
-      <a href="https://www.linkedin.com/in/iban-dorado-171a4a24b/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+      <a
+        href="https://www.linkedin.com/in/iban-dorado-171a4a24b/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="LinkedIn"
+      >
         <font-awesome-icon :icon="['fab', 'linkedin']" />
       </a>
-      <a href="https://x.com/IbDorado" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+      <a
+        href="https://x.com/IbDorado"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Twitter"
+      >
         <font-awesome-icon :icon="['fab', 'twitter']" />
       </a>
     </nav>
@@ -47,7 +67,7 @@ library.add(faGithub, faLinkedin, faTwitter, faFileCode)
 .logo {
   font-weight: bold;
   font-size: 1.5rem; /* Ajusta el tamaño */
-  color: #FFFFFF; /* Asegura que el texto del logo sea blanco */
+  color: #ffffff; /* Asegura que el texto del logo sea blanco */
 }
 
 .social-links {
@@ -57,7 +77,7 @@ library.add(faGithub, faLinkedin, faTwitter, faFileCode)
 }
 
 .social-links a {
-  color: #FFFFFF; /* Color del icono */
+  color: #ffffff; /* Color del icono */
   font-size: 1.5rem; /* Tamaño de los iconos */
   transition: color 0.3s ease; /* Transición suave para el hover */
 }
@@ -65,5 +85,4 @@ library.add(faGithub, faLinkedin, faTwitter, faFileCode)
 .social-links a:hover {
   color: #c49f3b; /* Color amarillo mostaza de acento al pasar el ratón */
 }
-
 </style>
