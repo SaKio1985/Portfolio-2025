@@ -1,15 +1,4 @@
 <script setup>
-import { library } from "@fortawesome/fontawesome-svg-core";
-
-import {
-  faGithub,
-  faLinkedin,
-  faTwitter,
-} from "@fortawesome/free-brands-svg-icons";
-import { faFileCode } from "@fortawesome/free-solid-svg-icons";
-
-library.add(faGithub, faLinkedin, faTwitter, faFileCode);
-
 const currentYear = new Date().getFullYear();
 </script>
 

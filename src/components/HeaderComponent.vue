@@ -1,16 +1,4 @@
-<script setup>
-import { library } from "@fortawesome/fontawesome-svg-core";
-
-import {
-  faLinkedin,
-  faTwitter,
-  faGithub,
-} from "@fortawesome/free-brands-svg-icons";
-
-import { faFileCode } from "@fortawesome/free-solid-svg-icons";
-
-library.add(faGithub, faLinkedin, faTwitter, faFileCode);
-</script>
+<script setup></script>
 
 <template>
   <header class="header-container">
