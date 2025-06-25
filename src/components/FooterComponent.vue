@@ -1,4 +1,8 @@
 <script setup>
+import IconGithub from "@/components/icons/IconGithub.vue";
+import IconLinkedin from "@/components/icons/IconLinkedin-in.vue";
+import IconX from "@/components/icons/IconX-twitter.vue";
+
 const currentYear = new Date().getFullYear();
 </script>
 
@@ -11,33 +15,25 @@ const currentYear = new Date().getFullYear();
           href="https://github.com/SaKio1985"
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="GitHub"
+          aria-label="Mi perfil de GitHub"
         >
-          <font-awesome-icon :icon="['fab', 'github']" />
-        </a>
-        <a
-          href="#"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Frontend Mentor Profile"
-        >
-          <font-awesome-icon :icon="['fas', 'file-code']" />
+          <IconGithub />
         </a>
         <a
           href="https://www.linkedin.com/in/iban-dorado-171a4a24b/"
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="LinkedIn"
+          aria-label="Mi perfil de LinkedIn"
         >
-          <font-awesome-icon :icon="['fab', 'linkedin']" />
+          <IconLinkedin />
         </a>
         <a
           href="https://x.com/IbDorado"
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Twitter"
+          aria-label="Mi perfil de X (antes Twitter)"
         >
-          <font-awesome-icon :icon="['fab', 'twitter']" />
+          <IconX />
         </a>
       </nav>
     </div>
@@ -46,54 +42,51 @@ const currentYear = new Date().getFullYear();
 
 <style scoped>
 .footer-container {
-  background-color: #202020; /* Un gris oscuro, como en la imagen de referencia del footer */
+  background-color: #202020;
   color: #ffffff;
-  padding: 25px 40px; /* Ajusta el padding vertical y horizontal */
-  border-top: 1px solid #383838; /* Línea divisoria superior, color sutil */
-  /* Si el footer debe estar siempre al final de la página,
-     asegúrate de que los estilos globales en App.vue (flex-grow en main) estén correctos */
+  padding: 25px 40px;
+  border-top: 1px solid #383838;
 }
 
 .footer-content {
   display: flex;
-  justify-content: space-between; /* Clave para separar el nombre y los iconos */
-  align-items: center; /* Alinea verticalmente los ítems */
-  max-width: 1100px; /* O el ancho máximo que estés usando para el contenido principal */
-  margin: 0 auto; /* Centra el contenido si tiene un max-width */
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 .brand-info {
-  font-size: 1rem; /* Tamaño del texto de la marca/nombre */
-  font-weight: normal; /* O 'bold' si prefieres */
+  font-size: 1rem;
+  font-weight: normal;
 }
 
 .social-links {
-  display: flex; /* Para alinear los iconos horizontalmente */
+  display: flex;
   align-items: center;
-  gap: 25px; /* Espacio entre los iconos, similar al header */
+  gap: 25px;
 }
 
 .social-links a {
-  color: #ffffff; /* Color del icono */
-  font-size: 1.25rem; /* Tamaño de los iconos, puede ser un poco más pequeño que en el header si prefieres */
+  color: #ffffff;
+  font-size: 2rem;
   transition: color 0.3s ease;
 }
 
 .social-links a:hover {
-  color: #c49f3b; /* Color amarillo mostaza de acento al pasar el ratón */
+  color: #c49f3b;
 }
 
-/* Media Query para pantallas más pequeñas (opcional, pero buena práctica) */
 @media (max-width: 600px) {
   .footer-content {
-    flex-direction: column; /* Apila los elementos verticalmente */
-    gap: 20px; /* Espacio entre la marca y los iconos cuando están apilados */
+    flex-direction: column;
+    gap: 20px;
   }
   .brand-info {
-    text-align: center; /* Centra el texto de la marca */
+    text-align: center;
   }
   .social-links {
-    justify-content: center; /* Centra los iconos */
+    justify-content: center;
   }
 }
 </style>

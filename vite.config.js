@@ -1,8 +1,20 @@
+// vite.config.js
+
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
-import { VitePWA } from "vite-plugin-pwa";
+import path from "path"; // <-- 1. Importa el módulo 'path'
 
-// https://vite.dev/config/
+// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue(), VitePWA({ registerType: "autoUpdate" })],
+  plugins: [
+    vue(),
+    // Ya no necesitas el PWA plugin, lo quitamos para simplificar
+  ],
+
+  // 2. AÑADE ESTA SECCIÓN COMPLETA
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
+  },
 });

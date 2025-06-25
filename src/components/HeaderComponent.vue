@@ -1,40 +1,41 @@
-<script setup></script>
+<script setup>
+import IconGithub from "@/components/icons/IconGithub.vue";
+import IconLinkedin from "@/components/icons/IconLinkedin-in.vue";
+import IconX from "@/components/icons/IconX-twitter.vue";
+</script>
 
 <template>
   <header class="header-container">
     <div class="logo">Ibandorado</div>
     <nav class="social-links">
+      <!-- USANDO EL NUEVO COMPONENTE -->
       <a
         href="https://github.com/SaKio1985"
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="GitHub"
+        aria-label="Mi perfil de GitHub"
       >
-        <font-awesome-icon :icon="['fab', 'github']" />
+        <IconGithub />
       </a>
-      <a
-        href="#"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Frontend Mentor Profile"
-      >
-        <font-awesome-icon :icon="['fas', 'file-code']" />
-      </a>
+
+      <!-- USANDO EL NUEVO COMPONENTE -->
       <a
         href="https://www.linkedin.com/in/iban-dorado-171a4a24b/"
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="LinkedIn"
+        aria-label="Mi perfil de LinkedIn"
       >
-        <font-awesome-icon :icon="['fab', 'linkedin']" />
+        <IconLinkedin />
       </a>
+
+      <!-- USANDO EL NUEVO COMPONENTE -->
       <a
         href="https://x.com/IbDorado"
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Twitter"
+        aria-label="Mi perfil de X (antes Twitter)"
       >
-        <font-awesome-icon :icon="['fab', 'twitter']" />
+        <IconX />
       </a>
     </nav>
   </header>
@@ -43,34 +44,32 @@
 <style scoped>
 .header-container {
   display: flex;
-  justify-content: space-between; /* Empuja el logo a la izq y nav a la der */
-  align-items: center; /* Alinea verticalmente los ítems */
-  padding: 20px 40px; /* Ajusta el padding (ej: 20px arriba/abajo, 40px izq/der) */
-  /* background-color: #151515; Ya no es necesario si body lo tiene y este es transparente */
-  /* border-bottom: 1px solid #333; Opcional, si quieres una línea sutil de separación */
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 120px;
   width: 100%;
-  box-sizing: border-box; /* Para que el padding no aumente el width total */
+  box-sizing: border-box;
 }
 
 .logo {
   font-weight: bold;
-  font-size: 1.5rem; /* Ajusta el tamaño */
-  color: #ffffff; /* Asegura que el texto del logo sea blanco */
+  font-size: 1.8rem;
+  color: #ffffff;
 }
 
 .social-links {
-  display: flex; /* IMPORTANTE: Hace que los <a> hijos se alineen horizontalmente */
-  align-items: center; /* Alinea los iconos verticalmente si tienen alturas diferentes */
-  gap: 25px; /* Espacio entre los iconos (moderno) o usa margin-left en cada 'a' */
+  display: flex;
+  align-items: center;
+  gap: 25px;
 }
 
 .social-links a {
-  color: #ffffff; /* Color del icono */
-  font-size: 1.5rem; /* Tamaño de los iconos */
-  transition: color 0.3s ease; /* Transición suave para el hover */
+  color: #ffffff;
+  font-size: 2.2rem;
+  transition: color 0.3s ease;
 }
 
 .social-links a:hover {
-  color: #c49f3b; /* Color amarillo mostaza de acento al pasar el ratón */
+  color: #c49f3b;
 }
 </style>
