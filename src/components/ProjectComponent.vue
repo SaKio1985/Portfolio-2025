@@ -45,11 +45,13 @@ const projects = ref([
   },
   {
     id: 6,
-    titulo: "Listado-personajes-Rick-Morty",
-    habilidades: ["React", "CSS", "HTML", "Bootstrap"],
-    imagen: "/images/projects/Listado-personajes-Rick-Morty.png",
-    linkProduccion: "https://listado-personajes-rick-morty.vercel.app",
-    linkGithub: "https://github.com/SaKio1985/Listado-personajes-Rick-Morty",
+    titulo: "Clon Cervecería Gilber's",
+    habilidades: ["Vue.js", "Tailwind CSS", "Pinia", "Glassmorphism"],
+    imagen: "/images/projects/clon-cerveceria.png",
+    linkProduccion:
+      "https://clon-cerveceria-git-feat-pinia-cart-ibans-projects-0f1ebac6.vercel.app/",
+    linkGithub:
+      "https://github.com/SaKio1985/clon-cerveceria/tree/feat/pinia-cart",
   },
 ]);
 </script>
