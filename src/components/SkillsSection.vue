@@ -3,11 +3,11 @@ import { ref } from "vue";
 
 // Usamos ref para que Vue lo trate como un dato reactivo, es una buena práctica.
 const skills = ref([
-  { name: "HTML", experience: "1.5 Años Experiencia" },
-  { name: "CSS", experience: "1.5 Años Experiencia" },
-  { name: "Javascript", experience: "1.5 Años Experiencia" },
-  { name: "React", experience: "1 Año Experiencia" },
-  { name: "Vue", experience: "6 Meses Experiencia" },
+  { name: "HTML", experience: "2 Años Experiencia" },
+  { name: "CSS", experience: "2 Años Experiencia" },
+  { name: "Javascript", experience: "2 Años Experiencia" },
+  { name: "React", experience: "1,5 Año Experiencia" },
+  { name: "Vue", experience: "12 Meses Experiencia" },
   { name: "Git", experience: "2 años Experiencia" },
 ]);
 </script>
