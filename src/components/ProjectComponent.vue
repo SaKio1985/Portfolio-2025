@@ -13,11 +13,11 @@ const projects = ref([
   },
   {
     id: 2,
-    titulo: "TierList",
-    habilidades: ["HTML", "CSS", "Javascript"],
-    imagen: "/images/projects/tier-maker.png",
-    linkProduccion: "https://tier-list-alpha.vercel.app",
-    linkGithub: "https://github.com/SaKio1985/TierList",
+    titulo: "Ruta de viajes",
+    habilidades: ["HTML", "CSS", "Javascript", "Vue.js", "Vue-router", "Pinia"],
+    imagen: "/images/projects/ruta-viaje.png",
+    linkProduccion: "https://ruta-viajes.vercel.app/",
+    linkGithub: "hhttps://github.com/SaKio1985/Ruta-Viajes",
   },
   {
     id: 3,
