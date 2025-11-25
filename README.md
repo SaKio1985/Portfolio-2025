@@ -4,8 +4,9 @@
 [![Vite](https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E)](https://vitejs.dev/)
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://javascript.info/)
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://www.w3.org/Style/CSS/)
+[![PWA](https://img.shields.io/badge/PWA-5A0FC8?style=for-the-badge&logo=pwa&logoColor=white)](https://web.dev/progressive-web-apps/)
 
-> Un portfolio moderno y responsive construido con Vue 3 y Vite que muestra mis habilidades como desarrollador Front-end.
+> Un portfolio moderno, responsive y progresivo construido con Vue 3 y Vite que muestra mis habilidades como desarrollador Front-end.
 
 ## 🌟 Vista Previa
 
@@ -17,32 +18,37 @@
 - **📱 Totalmente Responsive**: Optimizado para desktop, tablet y móvil
 - **⚡ Performance**: Construido con Vite para carga ultra-rápida
 - **🔗 Navegación Suave**: Scroll suave entre secciones
-- **📬 Contacto Integrado**: Formulario funcional con integración WhatsApp
+- **📬 Contacto Integrado**: Formulario funcional con integración Telegram y notificaciones toast
 - **🌐 Redes Sociales**: Enlaces directos a GitHub, LinkedIn y Twitter
 - **🎯 SEO Optimizado**: Meta tags y estructura semántica
+- **📲 PWA Ready**: Soporte para Progressive Web App con instalación offline
+- **📄 CV Descargable**: Descarga directa del currículum en PDF
 
 ## 🛠️ Tecnologías Utilizadas
 
 ### Frontend
 
-- **Vue 3** - Framework JavaScript progresivo
-- **Vite** - Build tool de nueva generación
+- **Vue 3** (v3.5.25) - Framework JavaScript progresivo con Composition API
+- **Vite** (v7.2.4) - Build tool de nueva generación
+- **Vue3 Toastify** (v0.2.8) - Notificaciones toast elegantes
 - **Font Awesome** - Iconos vectoriales
 - **CSS3** - Estilos modernos con Grid y Flexbox
 - **Google Fonts** - Tipografía Fira Code
 
 ### Herramientas de Desarrollo
 
-- **ESLint** - Linting de código
+- **Vite Plugin PWA** (v1.1.0) - Soporte para Progressive Web Apps
+- **@vitejs/plugin-vue** (v6.0.2) - Plugin oficial de Vue para Vite
+- **pnpm** (v10.22.0) - Gestor de paquetes rápido y eficiente
 - **Git** - Control de versiones
-- **Vercel/Netlify** - Despliegue automático
+- **Vercel** - Despliegue automático y hosting
 
 ## 🚀 Instalación y Uso
 
 ### Prerrequisitos
 
 - Node.js (versión 16 o superior)
-- npm o yarn
+- pnpm (recomendado), npm o yarn
 
 ### Instalación Local
 
@@ -56,16 +62,20 @@
 2. **Instala las dependencias**
 
    ```bash
+   pnpm install
+   # o con npm
    npm install
-   # o
+   # o con yarn
    yarn install
    ```
 
 3. **Inicia el servidor de desarrollo**
 
    ```bash
+   pnpm dev
+   # o con npm
    npm run dev
-   # o
+   # o con yarn
    yarn dev
    ```
 
@@ -77,9 +87,9 @@
 ### Scripts Disponibles
 
 ```bash
-npm run dev      # Servidor de desarrollo
-npm run build    # Build para producción
-npm run preview  # Preview del build
+pnpm dev       # Servidor de desarrollo
+pnpm build     # Build para producción
+pnpm preview   # Preview del build
 ```
 
 ## 📁 Estructura del Proyecto
@@ -87,23 +97,28 @@ npm run preview  # Preview del build
 ```
 portfolio-2025/
 ├── public/
-│   ├── Photo.png           # Foto de perfil
-│   └── images/
-│       └── projects/       # Imágenes de proyectos
+│   ├── Photo.png              # Foto de perfil (PNG)
+│   ├── Photo.avif             # Foto de perfil optimizada (AVIF)
+│   ├── Iban_Dorado_CV.pdf     # Currículum en PDF
+│   └── images/                # Imágenes de proyectos
 ├── src/
 │   ├── components/
-│   │   ├── HeaderComponent.vue    # Navegación principal
-│   │   ├── HeroSection.vue        # Sección de presentación
-│   │   ├── SkillsSection.vue      # Habilidades técnicas
-│   │   ├── ProjectComponent.vue   # Lista de proyectos
-│   │   ├── ProjectCard.vue        # Tarjeta individual de proyecto
-│   │   ├── ContactSection.vue     # Formulario de contacto
-│   │   └── FooterComponent.vue    # Pie de página
-│   ├── App.vue             # Componente principal
-│   ├── main.js             # Punto de entrada
-│   └── style.css           # Estilos globales
-├── index.html              # Template HTML
-└── package.json            # Configuración del proyecto
+│   │   ├── HeaderComponent.vue     # Navegación principal
+│   │   ├── HeroSection.vue         # Sección de presentación
+│   │   ├── SkillsSection.vue       # Habilidades técnicas
+│   │   ├── ProjectComponent.vue    # Lista de proyectos
+│   │   ├── ProjectCard.vue         # Tarjeta individual de proyecto
+│   │   ├── ContactSection.vue      # Formulario de contacto
+│   │   ├── FooterComponent.vue     # Pie de página
+│   │   ├── BotonComponent.vue      # Componente de botón reutilizable
+│   │   └── icons/                  # Iconos SVG personalizados
+│   ├── assets/                 # Assets estáticos
+│   ├── App.vue                 # Componente principal
+│   ├── main.js                 # Punto de entrada
+│   └── style.css               # Estilos globales
+├── api/                        # Funciones serverless (Vercel)
+├── vite.config.js              # Configuración de Vite
+└── package.json                # Configuración del proyecto
 ```
 
 ## 🎨 Secciones del Portfolio
@@ -184,23 +199,36 @@ Para personalizar el portfolio para tu uso:
 
 ### Vercel (Recomendado)
 
+El proyecto está configurado para desplegarse automáticamente en Vercel:
+
 ```bash
-npm run build
+pnpm build
 vercel --prod
 ```
+
+O conecta tu repositorio de GitHub con Vercel para despliegue automático en cada push.
 
 ### Netlify
 
 ```bash
-npm run build
+pnpm build
 # Sube la carpeta 'dist' a Netlify
 ```
 
 ### GitHub Pages
 
 ```bash
-npm run build
+pnpm build
 # Configura GitHub Pages para usar la carpeta 'dist'
+```
+
+### Build Manual
+
+Para generar los archivos de producción localmente:
+
+```bash
+pnpm build
+# Los archivos se generarán en la carpeta 'dist'
 ```
 
 ## 🤝 Contribuciones
@@ -221,7 +249,7 @@ Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más det
 
 **Iban Dorado**
 
-- 🌐 [Portfolio](https://tu-portfolio-url.com)
+- 🌐 [Portfolio](https://portfolio-2025-red-mu.vercel.app/)
 - 💼 [LinkedIn](https://www.linkedin.com/in/iban-dorado-171a4a24b/)
 - 🐦 [Twitter](https://x.com/IbDorado)
 - 💻 [GitHub](https://github.com/SaKio1985)
